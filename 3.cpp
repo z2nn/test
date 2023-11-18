@@ -9,7 +9,7 @@ const int cellSize = 30;
 class Snake {
 public:
     Snake();
-    int score;
+    int score=0;
     void move(char direction);//移动
     void makeFood();//生成食物
     bool checkCollision();//检查碰撞
