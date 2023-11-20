@@ -100,7 +100,7 @@ void Snake::draw(Mat& gamemap) {
     }
     // 蛇身
         for ( Point segment : body) { //基于范围的for循环 (c++11),第一部分是范围内用于迭代的变量，第二部分则表示被迭代的范围。
-            rectangle(gamemap, Point(segment.x * cellSize, segment.y * cellSize), Point((segment.x + 1) * cellSize, (segment.y + 1) * cellSize), Scalar(255, 0, 0), FILLED);
+            rectangle(gamemap, Point(segment.x * cellSize, segment.y * cellSize), Point((segment.x + 1) * cellSize, (segment.y + 1) * cellSize), Scalar(255, 255, 0), FILLED);
     }
     //食物
         rectangle(gamemap, Point(food.x * cellSize, food.y * cellSize), Point((food.x + 1) * cellSize, (food.y + 1) * cellSize), Scalar(0, 0, 255), FILLED);
