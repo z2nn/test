@@ -103,7 +103,7 @@ void Snake::draw(Mat& gamemap) {
             rectangle(gamemap, Point(segment.x * cellSize, segment.y * cellSize), Point((segment.x + 1) * cellSize, (segment.y + 1) * cellSize), Scalar(255, 0, 0), FILLED);
     }
     //食物
-        rectangle(gamemap, Point(food.x * cellSize, food.y * cellSize), Point((food.x + 1) * cellSize, (food.y + 1) * cellSize), Scalar(0, 255, 0), FILLED);
+        rectangle(gamemap, Point(food.x * cellSize, food.y * cellSize), Point((food.x + 1) * cellSize, (food.y + 1) * cellSize), Scalar(0, 0, 255), FILLED);
 }
 int main() {
     Mat gamemap(cellNumber * cellSize, cellNumber * cellSize, CV_8UC3,Scalar(0,0,0));
