@@ -8,7 +8,7 @@ const int cellSize = 30;
 
 class Snake {
 public:
-    Snake();
+    Snake(); 
     int score=0;
     void move(char direction);//移动
     void makeFood();//生成食物
@@ -34,19 +34,23 @@ void Snake::move(char direction) {
     switch(direction){
 case 'w' :
 if(currentDirection != 's'){
-    currentDirection = 'w'; break;
+    currentDirection = 'w'; 
+    break;
 }
 case 's' :
 if(currentDirection != 'w'){
-    currentDirection = 's'; break;
+    currentDirection = 's';
+     break;
 }
 case 'a' :
 if(currentDirection != 'd'){
-    currentDirection = 'a'; break;
+    currentDirection = 'a'; 
+    break;
 }
 case 'd' :
 if(currentDirection != 'a'){
-    currentDirection = 'd'; break;
+    currentDirection = 'd'; 
+    break;
 }
     }
     Point newHead = body.front();
