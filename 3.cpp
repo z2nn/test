@@ -3,12 +3,12 @@
 using namespace cv;
 using namespace std;
 
-const int cellNumber = 20; 
-const int cellSize = 30; 
+const int cellNumber = 20;
+const int cellSize = 30;
 
 class Snake {
 public:
-    Snake(); 
+    Snake();
     int score=0;
     void move(char direction);//移动
     void makeFood();//生成食物
@@ -26,33 +26,62 @@ Snake::Snake() {
     body.push_back(priminalHead);
     body.push_back(priminalBody);
     makeFood();
-    currentDirection = 'd'; 
+    currentDirection = 'd';
 }
 
 void Snake::move(char direction) {
     // 移动
-    switch(direction){
-case 'w' :
-if(currentDirection != 's'){
-    currentDirection = 'w'; 
-    break;
-}
-case 's' :
-if(currentDirection != 'w'){
-    currentDirection = 's';
-     break;
-}
-case 'a' :
-if(currentDirection != 'd'){
-    currentDirection = 'a'; 
-    break;
-}
-case 'd' :
-if(currentDirection != 'a'){
-    currentDirection = 'd'; 
-    break;
-}
+        switch(direction){
+         case 'w':
+            if (currentDirection != 's') {
+                currentDirection = 'w';
+            }
+            break;
+
+        case 's':
+            if (currentDirection != 'w') {
+                currentDirection = 's';
+            }
+            break;
+
+        case 'a':
+            if (currentDirection != 'd') {
+                currentDirection = 'a';
+            }
+            break;
+
+        case 'd':
+            if (currentDirection != 'a') {
+                currentDirection = 'd';
+            }
+            break;
     }
+        
+//switch语句的bug，如果没有break，会执行下一个case，所以要加break,此处如果if判断不成立，就不会执行break，就会执行下一个case；
+//所以break应该放在if外面，保证if判断成立或者不成立都会执行break，而不是只有if判断成立才会执行break,这正是bug的原因；
+//这个bug于2024年1月28日被修复
+
+// case 'w' :
+// if(currentDirection != 's'){
+//     currentDirection = 'w';
+//     break;
+// }
+// case 's' :
+// if(currentDirection != 'w'){
+//     currentDirection = 's';
+//      break;
+// }
+// case 'a' :
+// if(currentDirection != 'd'){
+//     currentDirection = 'a';
+//     break;
+// }
+// case 'd' :
+// if(currentDirection != 'a'){
+//     currentDirection = 'd';
+//     break;
+// }
+
     Point newHead = body.front();
 switch(currentDirection){
     case 'w' :
@@ -66,7 +95,7 @@ switch(currentDirection){
 }
 body.insert(body.begin(),newHead);
 if(newHead == food){
-       score++; 
+       score++;
        makeFood();
 }
 else{
@@ -86,7 +115,7 @@ bool Snake::checkCollision() {
     // 检查是否碰撞，1/0
     Point head = body.front();
     return count(body.begin() + 1, body.end(), head) > 0;//vector中count()返回这个值出现的次数,从第二个部位开始数
-    
+
 }
 
 bool Snake::checkBoundary() {
@@ -114,7 +143,7 @@ int main() {
     Snake snake;
        while (1) {
         char key = waitKey(150);
-        if (key == 27) break; 
+        if (key == 27) break;
         snake.move(key);
         if (snake.checkCollision() || snake.checkBoundary()) break;
         gamemap = Scalar(0, 0, 0);
