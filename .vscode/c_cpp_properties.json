@@ -6,7 +6,8 @@
                 "${workspaceFolder}/**",
                 "/usr/include",
                 "/usr/local/include/**",
-                "/usr/include/opencv4"
+                "/usr/include/opencv4",
+                "/usr/include/SFML"  
             ],
             "defines": [
                 "_DEBUG",

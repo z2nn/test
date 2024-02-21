@@ -1,6 +1,4 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
@@ -13,29 +11,34 @@
                 "${file}",
                 "-o",
                 "${fileBasenameNoExtension}.main.out",
-			        "-I", "/usr/include",
-			        "-I", "/usr/include/opencv4",
-                    "-I", "/usr/include/opencv4/opencv2",
-			        "-L", "/usr/local/lib",
-			        "-l", "opencv_core",
-			        "-l", "opencv_imgproc",
-			        "-l", "opencv_imgcodecs",
-			        "-l", "opencv_video",
-			        "-l", "opencv_ml",
-			        "-l", "opencv_highgui",
-			        "-l", "opencv_objdetect",
-			        "-l", "opencv_flann",
-			        "-l", "opencv_imgcodecs",
-			        "-l", "opencv_photo",
-			        "-l", "opencv_videoio"
+                "-I", "/usr/include",
+                "-I", "/usr/include/opencv4",
+                "-I", "/usr/include/opencv4/opencv2",
+                "-I", "/path/to/SFML-2.x/include",  
+                "-L", "/usr/local/lib",
+                "-L", "/path/to/SFML-2.x/lib",      
+                "-l", "opencv_core",
+                "-l", "opencv_imgproc",
+                "-l", "opencv_imgcodecs",
+                "-l", "opencv_video",
+                "-l", "opencv_ml",
+                "-l", "opencv_highgui",
+                "-l", "opencv_objdetect",
+                "-l", "opencv_flann",
+                "-l", "opencv_imgcodecs",
+                "-l", "opencv_photo",
+                "-l", "opencv_videoio",
+                "-lsfml-graphics",  
+                "-lsfml-window",    
+                "-lsfml-system"     
             ],
-            "problemMatcher":{
+            "problemMatcher": {
                 "owner": "cpp",
-                "fileLocation":[
+                "fileLocation": [
                     "relative",
                     "${workspaceFolder}"
                 ],
-                "pattern":[
+                "pattern": [
                     {
                         "regexp": "^([^\\\\s].*)\\\\((\\\\d+,\\\\d+)\\\\):\\\\s*(.*)$",
                         "file": 1,
@@ -51,4 +54,3 @@
         }
     ]
 }
- 
